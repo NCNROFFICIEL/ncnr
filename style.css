@@ -51,6 +51,7 @@ nav ul {
 
 nav ul li {
     margin: 0 10px;
+    background: transparent;
 }
 
 /* 🚀 Boutons du menu */
