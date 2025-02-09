@@ -1,13 +1,13 @@
 /* 🚀 Barre de navigation */
 nav {
-    background-color: #2c3e50; /* Même couleur que la barre de fond */
+    background-color: #2c3e50; /* Fond du menu */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 10px 0;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #f39c12; /* Ligne séparatrice */
+    border-bottom: 3px solid #f39c12;
     z-index: 1000;
 }
 
@@ -21,7 +21,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 /* 🚀 Boutons du menu */
@@ -31,46 +31,17 @@ nav ul li a {
     font-size: 18px;
     font-weight: bold;
     padding: 12px 20px;
-    background: #2c3e50; /* Même couleur que la barre */
-    border-radius: 8px; /* Coins arrondis pour un effet plus moderne */
+    background: transparent; /* Suppression du fond résiduel */
+    border-radius: 8px;
+    border: none; /* Suppression de bordures */
+    display: inline-block; /* Assurer une bonne structure */
     transition: all 0.3s ease-in-out;
-    border: 2px solid transparent;
 }
 
 /* 🔥 Effet au survol */
 nav ul li a:hover {
-    background: #f39c12; /* Couleur jaune/orange */
+    background: #f39c12;
     color: white;
-    border: 2px solid #f39c12;
-    transform: translateY(-2px); /* Effet de soulèvement */
+    border-radius: 8px;
+    transform: translateY(-2px);
 }
-
-/* 📜 Contenu principal */
-main {
-    width: 80%;
-    margin: 50px auto; /* Ajoute un espacement en haut pour éviter qu'il soit collé sous le menu */
-    background: white;
-    padding: 20px;
-    border-radius: 8px; /* Coins arrondis pour une meilleure finition */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-}
-
-/* 🔹 Sections */
-section {
-    margin-bottom: 30px;
-}
-
-/* ✅ Listes */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    background: #ecf0f1;
-    margin: 10px 0;
-    padding: 10px;
-    border-left: 5px solid #2c3e50;
-    border-radius: 5px; /* Coins arrondis pour une meilleure finition */
-}
-
