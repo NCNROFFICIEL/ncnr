@@ -44,3 +44,33 @@ nav ul li a:hover {
     border: 2px solid #f39c12;
     transform: translateY(-2px); /* Effet de soulèvement */
 }
+
+/* 📜 Contenu principal */
+main {
+    width: 80%;
+    margin: 50px auto; /* Ajoute un espacement en haut pour éviter qu'il soit collé sous le menu */
+    background: white;
+    padding: 20px;
+    border-radius: 8px; /* Coins arrondis pour une meilleure finition */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* 🔹 Sections */
+section {
+    margin-bottom: 30px;
+}
+
+/* ✅ Listes */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #ecf0f1;
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 5px solid #2c3e50;
+    border-radius: 5px; /* Coins arrondis pour une meilleure finition */
+}
+
