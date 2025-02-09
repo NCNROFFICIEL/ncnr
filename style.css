@@ -17,14 +17,16 @@ header {
 }
 
 /* 📌 Titres */
-h1, h2 {
+h1 {
     text-align: center;
-    color: #2c3e50;
+    color: white;
 }
 
 h2 {
+    text-align: center;
     border-bottom: 3px solid #2c3e50;
     padding-bottom: 10px;
+    color: #2c3e50;
 }
 
 /* 🚀 Barre de navigation */
