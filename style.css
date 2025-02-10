@@ -113,3 +113,9 @@ footer {
     background: #2c3e50;
     color: white;
 }
+
+/* 🎨 Correction du h2 dans le footer */
+footer h2 {
+    color: #f39c12; /* Texte jaune/orange pour contraster avec le fond sombre */
+    border-bottom: none; /* Supprime la bordure sous le h2 dans le footer */
+}
