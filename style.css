@@ -80,17 +80,17 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
-/* 🚀 Tooltips dynamiques */
 .tooltip {
     position: absolute;
-    background: rgba(0, 0, 0, 0.8);
+    background: red !important; /* Force un fond rouge vif pour être sûr de la voir */
     color: white;
-    padding: 8px 12px;
+    padding: 10px;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px;
     white-space: nowrap;
-    transform: translate(-50%, -10px);
-    transition: opacity 0.2s ease-in-out;
-    opacity: 1;
     z-index: 2000;
+    opacity: 1 !important; /* Force l'affichage */
+    visibility: visible !important; /* Force l'affichage */
+    transform: translate(-50%, -10px);
 }
+
