@@ -82,19 +82,18 @@ nav ul li a:hover {
 
 /* 🚀 Tooltips dynamiques améliorés */
 .tooltip {
-    position: absolute;
+    position: fixed; /* Fixe la position par rapport à l'écran pour éviter qu'elle soit coupée */
     background: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 8px 12px;
     border-radius: 5px;
     font-size: 14px;
     white-space: nowrap;
-    z-index: 2000;
+    z-index: 9999; /* Priorité maximale pour éviter qu'elle passe derrière d'autres éléments */
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, -10px);
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
-    max-width: 250px; /* Largeur max pour éviter que le texte soit coupé */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    max-width: 250px; /* Largeur max pour éviter que le texte soit tronqué */
     text-align: center;
 }
 
@@ -114,7 +113,5 @@ nav ul li a:hover {
 .tooltip.show {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -15px);
+    transform: translateY(-5px);
 }
-
-
