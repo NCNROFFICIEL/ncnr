@@ -80,17 +80,41 @@ nav ul li a:hover {
     transform: translateY(-2px);
 }
 
+/* 🚀 Tooltips dynamiques améliorés */
 .tooltip {
     position: absolute;
-    background: red !important; /* Force un fond rouge vif pour être sûr de la voir */
+    background: rgba(0, 0, 0, 0.9);
     color: white;
-    padding: 10px;
+    padding: 8px 12px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     white-space: nowrap;
     z-index: 2000;
-    opacity: 1 !important; /* Force l'affichage */
-    visibility: visible !important; /* Force l'affichage */
+    opacity: 0;
+    visibility: hidden;
     transform: translate(-50%, -10px);
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+    max-width: 250px; /* Largeur max pour éviter que le texte soit coupé */
+    text-align: center;
 }
+
+/* 🔺 Flèche sous la bulle */
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+/* 🚀 Rendre la bulle visible */
+.tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -15px);
+}
+
 
