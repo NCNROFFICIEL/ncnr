@@ -93,16 +93,10 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("✅ JavaScript chargé"); // Vérifie si le script s'exécute bien
-    
         const links = document.querySelectorAll("nav ul li a");
     
         links.forEach(link => {
-            console.log("🔎 Détection du bouton :", link.textContent); // Vérifie si les liens sont bien détectés
-    
             link.addEventListener("mouseenter", function(event) {
-                console.log("🚀 Survol détecté sur :", this.textContent); // Vérifie si l'événement fonctionne
-    
                 let tooltipText = this.getAttribute("data-tooltip");
                 if (tooltipText) {
                     let tooltip = document.createElement("div");
@@ -111,13 +105,22 @@
                     document.body.appendChild(tooltip);
     
                     let rect = this.getBoundingClientRect();
-                    tooltip.style.left = `${rect.left + rect.width / 2}px`;
-                    tooltip.style.top = `${rect.top - 30}px`;
+                    let tooltipWidth = tooltip.offsetWidth;
+                    let tooltipHeight = tooltip.offsetHeight;
     
+                    let leftPos = rect.left + (rect.width / 2) - (tooltipWidth / 2);
+                    let topPos = rect.top + window.scrollY - tooltipHeight - 15; /* Ajuste avec le scroll */
+    
+                    // Empêcher la bulle de dépasser à gauche ou à droite
+                    if (leftPos < 10) leftPos = 10;
+                    if (leftPos + tooltipWidth > window.innerWidth - 10) 
+                        leftPos = window.innerWidth - tooltipWidth - 10;
+    
+                    tooltip.style.left = `${leftPos}px`;
+                    tooltip.style.top = `${topPos}px`;
                     tooltip.classList.add("show");
-                    this.tooltipElement = tooltip;
     
-                    console.log("🎈 Tooltip ajouté :", tooltipText);
+                    this.tooltipElement = tooltip;
                 }
             });
     
@@ -125,7 +128,6 @@
                 if (this.tooltipElement) {
                     document.body.removeChild(this.tooltipElement);
                     this.tooltipElement = null;
-                    console.log("🗑 Tooltip supprimé");
                 }
             });
         });
