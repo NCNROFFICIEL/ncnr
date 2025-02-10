@@ -91,5 +91,36 @@
         <p>✅ <strong>Mettons en place une véritable démocratie en France.<strong></p>
     </footer>
 
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const links = document.querySelectorAll("nav ul li a");
+    
+        links.forEach(link => {
+            link.addEventListener("mouseenter", function() {
+                let tooltipText = this.getAttribute("data-tooltip");
+                if (tooltipText) {
+                    let tooltip = document.createElement("div");
+                    tooltip.className = "tooltip";
+                    tooltip.textContent = tooltipText;
+                    document.body.appendChild(tooltip);
+    
+                    let rect = this.getBoundingClientRect();
+                    tooltip.style.left = `${rect.left + rect.width / 2}px`;
+                    tooltip.style.top = `${rect.top - 30}px`;
+    
+                    this.tooltipElement = tooltip;
+                }
+            });
+    
+            link.addEventListener("mouseleave", function() {
+                if (this.tooltipElement) {
+                    document.body.removeChild(this.tooltipElement);
+                    this.tooltipElement = null;
+                }
+            });
+        });
+    });
+    </script>
+
 </body>
 </html>
