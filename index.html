@@ -93,9 +93,13 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
+        console.log("JavaScript chargé"); // Vérifie que le script est exécuté
+    
         const links = document.querySelectorAll("nav ul li a");
     
         links.forEach(link => {
+            console.log("Ajout d'un tooltip sur : ", link.textContent); // Vérifie si les liens sont détectés
+    
             link.addEventListener("mouseenter", function() {
                 let tooltipText = this.getAttribute("data-tooltip");
                 if (tooltipText) {
@@ -109,6 +113,8 @@
                     tooltip.style.top = `${rect.top - 30}px`;
     
                     this.tooltipElement = tooltip;
+    
+                    console.log("Tooltip ajouté : ", tooltipText); // Vérifie si la bulle est bien créée
                 }
             });
     
@@ -116,6 +122,7 @@
                 if (this.tooltipElement) {
                     document.body.removeChild(this.tooltipElement);
                     this.tooltipElement = null;
+                    console.log("Tooltip supprimé"); // Vérifie si la bulle est bien supprimée
                 }
             });
         });
