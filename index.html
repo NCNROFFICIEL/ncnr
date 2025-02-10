@@ -93,14 +93,10 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("JavaScript chargé"); // Vérifie que le script est exécuté
-    
         const links = document.querySelectorAll("nav ul li a");
     
         links.forEach(link => {
-            console.log("Ajout d'un tooltip sur : ", link.textContent); // Vérifie si les liens sont détectés
-    
-            link.addEventListener("mouseenter", function() {
+            link.addEventListener("mouseenter", function(event) {
                 let tooltipText = this.getAttribute("data-tooltip");
                 if (tooltipText) {
                     let tooltip = document.createElement("div");
@@ -109,12 +105,22 @@
                     document.body.appendChild(tooltip);
     
                     let rect = this.getBoundingClientRect();
-                    tooltip.style.left = `${rect.left + rect.width / 2}px`;
-                    tooltip.style.top = `${rect.top - 30}px`;
+                    let tooltipWidth = tooltip.offsetWidth;
+                    let tooltipHeight = tooltip.offsetHeight;
+    
+                    let leftPos = rect.left + (rect.width / 2) - (tooltipWidth / 2);
+                    let topPos = rect.top - tooltipHeight - 10;
+    
+                    // S'assurer que le tooltip ne dépasse pas l'écran
+                    if (leftPos < 10) leftPos = 10; // Ajuste à gauche si trop près du bord
+                    if (leftPos + tooltipWidth > window.innerWidth - 10) 
+                        leftPos = window.innerWidth - tooltipWidth - 10; // Ajuste à droite si trop loin
+    
+                    tooltip.style.left = `${leftPos}px`;
+                    tooltip.style.top = `${topPos}px`;
+                    tooltip.classList.add("show");
     
                     this.tooltipElement = tooltip;
-    
-                    console.log("Tooltip ajouté : ", tooltipText); // Vérifie si la bulle est bien créée
                 }
             });
     
@@ -122,7 +128,6 @@
                 if (this.tooltipElement) {
                     document.body.removeChild(this.tooltipElement);
                     this.tooltipElement = null;
-                    console.log("Tooltip supprimé"); // Vérifie si la bulle est bien supprimée
                 }
             });
         });
