@@ -68,6 +68,7 @@ nav ul li a {
     border-radius: 8px;
     border: none; /* Suppression de bordures */
     display: inline-block; /* Assurer une bonne structure */
+    position: relative; /* Nécessaire pour les tooltips */
     transition: all 0.3s ease-in-out;
 }
 
@@ -77,6 +78,47 @@ nav ul li a:hover {
     color: white;
     border-radius: 8px;
     transform: translateY(-2px);
+}
+
+/* 🚀 Tooltips (bulles d'information) */
+nav ul li a::before {
+    content: attr(data-tooltip); /* Récupère le texte de l'attribut */
+    position: absolute;
+    bottom: 150%; /* Positionne la bulle au-dessus du bouton */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    opacity: 0; /* Caché par défaut */
+    visibility: hidden; /* Caché pour éviter les interactions */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Flèche sous la bulle */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 130%; /* Position de la flèche */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent; /* Triangle */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Effet au survol : affiche la bulle */
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
 }
 
 /* 📜 Contenu principal */
@@ -117,5 +159,5 @@ footer {
 /* 🎨 Correction du h2 dans le footer */
 footer h2 {
     color: #f39c12; /* Texte jaune/orange pour contraster avec le fond sombre */
-    border-bottom: none; /* Supprime la bordure sous le h2 dans le footer */
+    border-bottom: none;
 }
