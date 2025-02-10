@@ -68,7 +68,7 @@ nav ul li a {
     border-radius: 8px;
     border: none; /* Suppression de bordures */
     display: inline-block; /* Assurer une bonne structure */
-    position: relative; /* Nécessaire pour les tooltips */
+    position: relative; /* Important pour les tooltips */
     transition: all 0.3s ease-in-out;
 }
 
@@ -84,41 +84,41 @@ nav ul li a:hover {
 nav ul li a::before {
     content: attr(data-tooltip); /* Récupère le texte de l'attribut */
     position: absolute;
-    bottom: 150%; /* Positionne la bulle au-dessus du bouton */
+    bottom: 150%; /* Place la bulle au-dessus */
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond noir semi-transparent */
     color: white;
     padding: 8px 12px;
     border-radius: 5px;
     font-size: 14px;
-    white-space: nowrap; /* Empêche le retour à la ligne */
-    opacity: 0; /* Caché par défaut */
-    visibility: hidden; /* Caché pour éviter les interactions */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    pointer-events: none; /* Évite que la souris interagisse avec la bulle */
 }
 
-/* Flèche sous la bulle */
+/* 🔺 Flèche sous la bulle */
 nav ul li a::after {
     content: "";
     position: absolute;
-    bottom: 130%; /* Position de la flèche */
+    bottom: 130%;
     left: 50%;
     transform: translateX(-50%);
     border-width: 6px;
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent; /* Triangle */
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-/* Effet au survol : affiche la bulle */
+/* 🎯 Effet au survol */
 nav ul li a:hover::before,
 nav ul li a:hover::after {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(-5px);
 }
 
 /* 📜 Contenu principal */
