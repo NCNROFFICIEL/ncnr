@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parti politique NCNR</title>
+    <title>Manifeste NCNR</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -91,48 +91,6 @@
         <p>⚠ <strong>Le vote seul ne suffit pas.</strong> Nous devons <strong>écrire</strong> une nouvelle Constitution.</p>
         <p>✅ <strong>Mettons en place une véritable démocratie en France.</strong></p>
     </footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const links = document.querySelectorAll("nav ul li a");
-
-    links.forEach(link => {
-        link.addEventListener("mouseenter", function(event) {
-            let tooltipText = this.getAttribute("data-tooltip");
-            if (tooltipText) {
-                let tooltip = document.createElement("div");
-                tooltip.className = "tooltip";
-                tooltip.textContent = tooltipText;
-                document.body.appendChild(tooltip);
-
-                let rect = this.getBoundingClientRect();
-                let tooltipWidth = tooltip.offsetWidth;
-                let tooltipHeight = tooltip.offsetHeight;
-
-                let leftPos = rect.left + (rect.width / 2) - (tooltipWidth / 2);
-                let topPos = rect.top + window.scrollY - tooltipHeight - 15; /* Ajuste la hauteur */
-
-                // Empêcher le tooltip de dépasser les bords de l'écran
-                if (leftPos < 10) leftPos = 10;
-                if (leftPos + tooltipWidth > window.innerWidth - 10) 
-                    leftPos = window.innerWidth - tooltipWidth - 10;
-
-                tooltip.style.left = ${leftPos}px;
-                tooltip.style.top = ${topPos}px;
-                tooltip.classList.add("show");
-
-                this.tooltipElement = tooltip;
-            }
-        });
-
-        link.addEventListener("mouseleave", function() {
-            if (this.tooltipElement) {
-                document.body.removeChild(this.tooltipElement);
-                this.tooltipElement = null;
-            }
-        });
-    });
-});
-</script>
+    
 </body>
 </html>
