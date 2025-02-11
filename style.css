@@ -26,7 +26,7 @@
 [aria-label]:focus:before {
   content: "▲";  /* Flèche pointant vers le haut */
   position: absolute;
-  top: 100%; /* Place la flèche sous l'info-bulle */
+  top: 1em;
   left: 50%;
   transform: translateX(-50%);
   font-size: 20px;
