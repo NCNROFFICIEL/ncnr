@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manifeste NCNR</title>
+    <title>Parti politique NCNR</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -18,10 +18,10 @@
     <nav>
         <ul>
             <li><a href="pourquoi.html" data-tooltip="Pourquoi nous ne sommes pas en démocratie ?">Pourquoi ?</a></li>
-            <li><a href="constitution.html" data-tooltip="Comment écrire une Constitution ?">Écrire une Constitution</a></li>
-            <li><a href="ateliers.html" data-tooltip="Participer à un Atelier Constituant">Ateliers Constituants</a></li>
-            <li><a href="rejoindre.html" data-tooltip="Nous rejoindre pour agir ensemble">Nous rejoindre</a></li>
-            <li><a href="municipales.html" data-tooltip="Devenir candidat aux municipales 2026">Se présenter en 2026</a></li>
+            <li><a href="constitution.html">Écrire une Constitution</a></li>
+            <li><a href="ateliers.html">Ateliers Constituants</a></li>
+            <li><a href="rejoindre.html">Nous rejoindre</a></li>
+            <li><a href="municipales.html">Se présenter en 2026</a></li>
         </ul>
     </nav>
     
@@ -36,8 +36,53 @@
         </section>
 
         <section>
+            <h2>✍️ 2. Nécessité d’une Constitution Citoyenne</h2>
+            <ul>
+                <li>✔ <strong>Une Constitution écrite directement par le peuple</strong> corrigerait ces dysfonctionnements.</li>
+                <li>✔ Elle garantirait des <strong>règles claires de transparence et de responsabilité</strong> pour les élus.</li>
+                <li>✔ Intégration du <strong>référendum d’initiative citoyenne (RIC)</strong> pour que les citoyens puissent voter directement sur les lois.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🛠️ 3. Processus Constituant Populaire et Participatif</h2>
+            <ul>
+                <li>📌 <strong>Rédaction individuelle</strong> : Chaque citoyen est invité à rédiger sa propre Constitution.</li>
+                <li>📌 <strong>Ateliers Constituants</strong> : Groupes de 6 personnes qui débattent et <strong>ne quittent pas la table tant qu’un consensus n'est pas trouvé.</strong></li>
+                <li>📌 <strong>Synthèse Collective</strong> : Les meilleures idées sont fusionnées pour un texte final.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🤝 4. Transpartisanisme</h2>
+            <p>Les débats politiques entre citoyens <strong>ne doivent pas mener à une impuissance</strong>, mais à une prise de conscience commune : <strong>nous n’avons pas le pouvoir de décider.</strong></p>
+            <p>⚠ <strong>La Constitution actuelle est la cellule qui nous enferme.</strong></p>
+        </section>
+
+        <section>
+            <h2>🚨 5. Récupération du Pouvoir par le Peuple</h2>
+            <p>Tant que le peuple <strong>ne contrôle pas les règles du jeu, tous les autres débats sont des distractions</strong>.</p>
+            <p>📌 L’exemple du <strong>référendum de 2005</strong> contourné par le traité de Lisbonne prouve que nous ne sommes pas en démocratie.</p>
+        </section>
+
+        <section>
             <h2>🏛️ 6. Stratégie pour 2026-2027 : Une Tribune Nationale</h2>
             <p>🎯 <strong>Objectif : 500 maires citoyens en 2026</strong> pour obtenir les <strong>500 parrainages nécessaires</strong> et présenter un candidat à l’élection présidentielle de 2027.</p>
+        </section>
+
+        <section>
+            <h2>✊ 7. Nous Rejoindre</h2>
+            <ul>
+                <li>📲 Rejoignez nos <strong>réseaux sociaux</strong> pour discuter.</li>
+                <li>📝 Écrivez votre propre <strong>proposition de Constitution.</strong></li>
+                <li>👥 Participez ou organisez des <strong>ateliers constituants.</strong></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🗳️ 8. Investiture des Candidats aux Municipales 2026</h2>
+            <p>⚖ <strong>Aucune prise de risque</strong> : nous vous accompagnons juridiquement et financièrement.</p>
+            <p>🏛 <strong>Aucune étiquette politique</strong> : vous ne risquez rien pour votre réputation.</p>
         </section>
     </main>
 
@@ -49,8 +94,6 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("Script tooltip chargé");
-
     const links = document.querySelectorAll("nav ul li a");
 
     links.forEach(link => {
@@ -67,26 +110,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 let tooltipHeight = tooltip.offsetHeight;
 
                 let leftPos = rect.left + (rect.width / 2) - (tooltipWidth / 2);
-                let topPos = rect.top + window.scrollY - tooltipHeight - 15;
+                let topPos = rect.top + window.scrollY - tooltipHeight - 15; /* Ajuste la hauteur */
 
-                // Ajustement si le tooltip sort de l'écran
+                // Empêcher le tooltip de dépasser les bords de l'écran
                 if (leftPos < 10) leftPos = 10;
                 if (leftPos + tooltipWidth > window.innerWidth - 10) 
                     leftPos = window.innerWidth - tooltipWidth - 10;
 
-                tooltip.style.left = `${leftPos}px`;
-                tooltip.style.top = `${topPos}px`;
+                tooltip.style.left = ${leftPos}px;
+                tooltip.style.top = ${topPos}px;
                 tooltip.classList.add("show");
 
                 this.tooltipElement = tooltip;
-
-                console.log(`Tooltip ajouté : "${tooltipText}"`);
             }
         });
 
         link.addEventListener("mouseleave", function() {
             if (this.tooltipElement) {
-                console.log("Tooltip supprimé");
                 document.body.removeChild(this.tooltipElement);
                 this.tooltipElement = null;
             }
@@ -94,6 +134,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-
 </body>
 </html>
