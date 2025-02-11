@@ -26,7 +26,7 @@
 [aria-label]:focus:before {
   content: "▲";  /* Flèche pointant vers le haut */
   position: absolute;
-  TOP: 1em;
+  top: 1em;
   left: 50%;
   transform: translateX(-50%);
   font-size: 20px;
@@ -109,20 +109,6 @@ nav ul li a {
     border: none; /* Suppression de bordures */
     display: inline-block; /* Assurer une bonne structure */
     transition: all 0.3s ease-in-out;
-}
-
-.picto-item {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 .2em;
-  width: 1.2em;
-  height: 1.2em;
-  color: #413219;
-  background: #e1d3bd;
-  font-size: 3rem;
-  text-align: center;
-  text-decoration: none;
 }
 
 /* 🔥 Effet au survol */
