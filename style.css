@@ -111,6 +111,20 @@ nav ul li a {
     transition: all 0.3s ease-in-out;
 }
 
+.picto-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 .2em;
+  width: 1.2em;
+  height: 1.2em;
+  color: #413219;
+  background: #e1d3bd;
+  font-size: 3rem;
+  text-align: center;
+  text-decoration: none;
+}
+
 /* 🔥 Effet au survol */
 nav ul li a:hover {
     background: #f39c12;
